@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://exemple.com/gestionemploye/employees"
+           targetNamespace="http://exemple.com/gestionemploye/employees"
+           elementFormDefault="qualified">
+
+    <xs:element name="employeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="employeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employe" type="tns:employe"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="creerEmployeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employe" type="tns:employe"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="modifierEmployeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employe" type="tns:employe"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="supprimerEmployeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="supprimerEmployeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="succes" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="listeEmployesRequest">
+        <xs:complexType/>
+    </xs:element>
+
+    <xs:element name="listeEmployesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="employe" type="tns:employe" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="employe">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="poste" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
